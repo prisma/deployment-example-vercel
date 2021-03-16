@@ -10,7 +10,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "vercel-build": "prisma migrate deploy",
+    "vercel-build": "prisma migrate deploy && next build",
     "prisma:generate": "prisma generate",
     "postinstall": "prisma generate"
   },
