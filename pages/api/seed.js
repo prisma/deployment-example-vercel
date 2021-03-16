@@ -1,5 +1,4 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import prisma from '../../lib/prisma'
 
 export default async (req, res) => {
   try {
@@ -10,17 +9,17 @@ export default async (req, res) => {
     await prisma.user.deleteMany({})
 
     const createdUser = await prisma.user.create({
-      data: seedUser
+      data: seedUser,
     })
 
     const createdUser2 = await prisma.user.create({
-      data: seedUser2
+      data: seedUser2,
     })
 
     res.status(201).json([createdUser, createdUser2])
   } catch (error) {
     console.error(error)
-    res.status(500)
+    return res.status(500).end()
   }
 }
 
@@ -30,15 +29,15 @@ const seedUser = {
   profiles: {
     create: [
       {
-        bio: 'Technical Writer'
+        bio: 'Technical Writer',
       },
       {
-        bio: 'Health Enthusiast'
+        bio: 'Health Enthusiast',
       },
       {
-        bio: 'Self Quantifier'
-      }
-    ]
+        bio: 'Self Quantifier',
+      },
+    ],
   },
   posts: {
     create: [
@@ -46,14 +45,14 @@ const seedUser = {
         title:
           'Comparing Database Types: How Database Types Evolved to Meet Different Needs',
         content:
-          'https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37/'
+          'https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37/',
       },
       {
         title: 'Analysing Sleep Patterns: The Quantified Self',
-        content: 'https://quantifiedself.com/get-started/'
-      }
-    ]
-  }
+        content: 'https://quantifiedself.com/get-started/',
+      },
+    ],
+  },
 }
 
 const seedUser2 = {
@@ -62,30 +61,30 @@ const seedUser2 = {
   profiles: {
     create: [
       {
-        bio: 'Composer'
+        bio: 'Composer',
       },
       {
-        bio: 'Musician'
+        bio: 'Musician',
       },
       {
-        bio: 'Writer'
-      }
-    ]
+        bio: 'Writer',
+      },
+    ],
   },
   posts: {
     create: [
       {
         title: 'Requiem for String Orchestra',
-        content: ''
+        content: '',
       },
       {
         title: 'Music of Tree',
-        content: ''
+        content: '',
       },
       {
         title: 'Waves for clarinet, horn, two trombones and bass drum ',
-        content: ''
-      }
-    ]
-  }
+        content: '',
+      },
+    ],
+  },
 }

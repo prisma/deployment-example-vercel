@@ -1,16 +1,21 @@
 {
   "name": "deployment-example-prisma-vercel",
   "dependencies": {
-    "@prisma/client": "2.19.0-dev.24"
+    "@prisma/client": "2.19.0-dev.45",
+    "next": "10.0.9",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
   },
   "scripts": {
-    "start": "node index.js",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "vercel-build": "prisma migrate deploy",
     "prisma:generate": "prisma generate",
     "postinstall": "prisma generate"
   },
   "devDependencies": {
-    "prisma": "2.19.0-dev.24",
+    "prisma": "2.19.0-dev.45",
     "vercel": "21.3.3"
   }
 }
