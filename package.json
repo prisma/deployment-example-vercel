@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "vercel-build": "prisma generate && prisma migrate deploy && next build",
-    "prisma:generate": "prisma generate",
+    "prisma:generate": "prisma generate"
   },
   "devDependencies": {
     "prisma": "2.26.0"
