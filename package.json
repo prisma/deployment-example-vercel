@@ -10,8 +10,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "vercel-build": "prisma generate && DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy && next build",
-    "prisma:generate": "prisma generate"
+    "vercel-build": "npm run prisma:generate && npm run prisma:migrate && next build",
+    "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
+    "prisma:migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
   },
   "devDependencies": {
     "prisma": "3.1.0-integration-data-proxy-engine.1"
