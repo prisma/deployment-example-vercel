@@ -9,24 +9,24 @@ datasource db {
 }
 
 model Post {
-  post_id   Int     @id @default(autoincrement())
-  content   String?
-  title     String
-  author_id Int?
-  author    User?   @relation(fields: [author_id], references: [user_id])
+  id       Int     @id @default(autoincrement())
+  content  String?
+  title    String
+  authorId Int?
+  author   User?   @relation(fields: [authorId], references: [id])
 }
 
 model Profile {
-  bio        String?
-  profile_id Int     @id @default(autoincrement())
-  user_id    Int
-  user       User    @relation(fields: [user_id], references: [user_id])
+  id     Int     @id @default(autoincrement())
+  bio    String?
+  userId Int
+  user   User    @relation(fields: [userId], references: [id])
 }
 
 model User {
+  id       Int       @id @default(autoincrement())
   email    String    @unique
   name     String?
-  user_id  Int       @id @default(autoincrement())
   posts    Post[]
   profiles Profile[]
 }

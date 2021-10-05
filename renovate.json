@@ -1,5 +1,22 @@
 {
   "extends": ["config:base"],
-  "masterIssue": true,
-  "reviewers": ["@2color"]
+  "reviewers": ["@2color"],
+  "semanticCommits": "enabled",
+  "dependencyDashboard": true,
+  "timezone": "Europe/Berlin",
+  "packageRules": [
+    {
+      "matchPackageNames": ["next", "react", "react-dom"],
+      "groupName": "deps (non-major)",
+      "automerge": "true"
+    },
+    {
+      "matchPackagePatterns": ["@prisma/*"],
+      "matchPackageNames": ["prisma"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "Prisma Dependencies",
+      "groupSlug": "prisma-deps",
+      "automerge": "true"
+    }
+  ]
 }
