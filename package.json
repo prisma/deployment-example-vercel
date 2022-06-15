@@ -1,7 +1,7 @@
 {
   "name": "deployment-example-prisma-vercel",
   "dependencies": {
-    "@prisma/client": "3.15.1",
+    "@prisma/client": "3.15.2",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -15,6 +15,6 @@
     "prisma:migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
   },
   "devDependencies": {
-    "prisma": "3.15.1"
+    "prisma": "3.15.2"
   }
 }
