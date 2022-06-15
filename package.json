@@ -1,7 +1,7 @@
 {
   "name": "deployment-example-prisma-vercel",
   "dependencies": {
-    "@prisma/client": "3.14.0",
+    "@prisma/client": "3.15.1",
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -11,10 +11,10 @@
     "build": "next build",
     "start": "next start",
     "vercel-build": "npm run prisma:generate && npm run prisma:migrate && next build",
-    "prisma:generate": "PRISMA_CLIENT_ENGINE_TYPE='dataproxy' prisma generate",
+    "prisma:generate": "prisma generate --data-proxy",
     "prisma:migrate": "DATABASE_URL=\"$MIGRATE_DATABASE_URL\" prisma migrate deploy"
   },
   "devDependencies": {
-    "prisma": "3.14.0"
+    "prisma": "3.15.1"
   }
 }
