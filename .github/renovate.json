@@ -1,6 +1,6 @@
 {
   "extends": ["config:base"],
-  "reviewers": ["janpio", "ruheni", "tanberry"],
+  "reviewers": ["janpio", "ruheni", "zachtil"],
   "semanticCommits": "enabled",
   "dependencyDashboard": true,
   "timezone": "Europe/Berlin",
