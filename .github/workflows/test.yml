@@ -1,0 +1,44 @@
+name: "Test"
+on:
+  pull_request:
+    branches:
+      - main
+      - data-proxy
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@localhost:5432/deployment-example-vercel
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: npm install
+      - run: npx prisma migrate deploy
+      - name: 'Start server & test API routes'
+        run: |
+          npm run dev &
+          pid=$!
+
+          sleep 15
+          # check api routes
+          curl --fail 'http://localhost:3000/api'
+          curl --fail 'http://localhost:3000/api/seed'
+          curl --fail 'http://localhost:3000/api/users'
+          curl --fail 'http://localhost:3000/api/posts'
+          kill "$pid"
