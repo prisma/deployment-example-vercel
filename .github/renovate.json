@@ -1,9 +1,10 @@
 {
   "extends": ["config:base"],
-  "reviewers": ["@2color"],
+  "reviewers": ["janpio", "ruheni", "zachtil"],
   "semanticCommits": "enabled",
   "dependencyDashboard": true,
   "timezone": "Europe/Berlin",
+  "baseBranches": ["main", "data-proxy"],
   "packageRules": [
     {
       "matchPackageNames": ["next", "react", "react-dom"],
