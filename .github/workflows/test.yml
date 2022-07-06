@@ -30,7 +30,8 @@ jobs:
           node-version: 16
       - run: npm install
       - run: npx prisma migrate deploy
-      - run: |
+      - name: 'Start server & test API routes'
+        run: |
           npm run dev &
           pid=$!
 
