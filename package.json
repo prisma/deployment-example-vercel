@@ -1,7 +1,7 @@
 {
   "name": "deployment-example-prisma-vercel",
   "dependencies": {
-    "@prisma/client": "4.15.0",
+    "@prisma/client": "4.16.0",
     "next": "13.4.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -14,6 +14,6 @@
     "prisma:generate": "prisma generate"
   },
   "devDependencies": {
-    "prisma": "4.15.0"
+    "prisma": "4.16.0"
   }
 }
